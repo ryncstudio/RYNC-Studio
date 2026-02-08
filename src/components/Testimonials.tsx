@@ -12,28 +12,28 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Mark Johnson",
-    role: "CEO",
-    company: "TechStart Solutions",
-    quote: "Rync Studio transformed our digital presence with exceptional attention to detail and technical expertise.",
+    name: "Sarah Mitchell",
+    role: "Owner",
+    company: "PawVita Pet Care",
+    quote: "Working with Rync Studio was honestly the best decision I made for my business. They took my messy ideas and turned them into a beautiful, easy-to-navigate site. My customers actually comment on how professional it looks now. Sales have gone up, and I'm finally confident sending people to my website!",
   },
   {
-    name: "Sarah Chen",
-    role: "Marketing Director",
-    company: "GrowthScale Inc",
-    quote: "Our conversion rates increased by 40% within the first month. Truly remarkable work!",
-  },
-  {
-    name: "David Rodriguez",
+    name: "Miguel Rodriguez",
     role: "Founder",
-    company: "Innovate Labs",
-    quote: "They didn't just build a website—they built a digital experience that our users love.",
+    company: "PorbEduAksyon",
+    quote: "I needed a platform that could reach people in rural areas with slow internet. The team didn't just build something pretty—they made sure it loaded fast even on 3G connections. We've already helped over 2,000 students access courses they couldn't before. That's real impact.",
   },
   {
-    name: "Emily Santos",
-    role: "Product Manager",
-    company: "CloudWave",
-    quote: "Modern, fast, and perfectly aligned with our brand. Exceptional craftsmanship throughout.",
+    name: "James Owen",
+    role: "Managing Partner",
+    company: "Owen & Associates",
+    quote: "In the financial services industry, trust is everything. Rync Studio understood that from day one. They redesigned our entire digital presence to feel modern but still professional. Our client acquisition has increased by 60% in just three months. These guys know what they're doing.",
+  },
+  {
+    name: "Kathryn Wilking",
+    role: "Interior Designer",
+    company: "Wilking Design Studio",
+    quote: "As someone who works in design, I'm picky about everything. The Rync team really listened to my vision and executed it perfectly. My portfolio site now reflects the quality of my work, and I've landed three high-value residential projects directly from the website. Worth every penny.",
   },
 ];
 
