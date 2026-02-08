@@ -43,7 +43,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background" ref={containerRef}>
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[75vh] flex items-start justify-center overflow-hidden">
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="absolute inset-0 z-0"
@@ -52,7 +52,7 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background" />
         </motion.div>
 
-        <div className="container relative z-10 px-6 max-w-[1000px] text-center">
+        <div className="container relative z-10 px-6 max-w-[1000px] text-center pt-40">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

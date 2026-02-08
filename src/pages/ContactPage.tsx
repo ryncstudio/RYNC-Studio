@@ -17,8 +17,8 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background" ref={containerRef}>
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <motion.div 
+      <section className="relative h-[75vh] flex items-start justify-center overflow-hidden">
+        <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="absolute inset-0 z-0"
         >
@@ -26,16 +26,16 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background" />
         </motion.div>
 
-        <div className="container relative z-10 px-6 max-w-[1000px] text-center">
-          <motion.span 
+        <div className="container relative z-10 px-6 max-w-[1000px] text-center pt-40">
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-block mb-6 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium tracking-wide uppercase"
           >
             Get in Touch
           </motion.span>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -44,7 +44,7 @@ export default function ContactPage() {
             Let's start a <span className="text-primary">conversation.</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}

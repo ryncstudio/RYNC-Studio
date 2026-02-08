@@ -32,15 +32,15 @@ export function Navbar() {
   // Determine if a link is active
   const isActive = (href: string) => {
     // Exact match for routes
-    if ((href === "/about" && location === "/about") || 
-        (href === "/work" && location === "/work") ||
-        (href === "/services" && location === "/services") ||
-        (href === "/team" && location === "/team")) return true;
-    
+    if ((href === "/about" && location === "/about") ||
+      (href === "/work" && location === "/work") ||
+      (href === "/services" && location === "/services") ||
+      (href === "/team" && location === "/team")) return true;
+
     return false;
   };
 
-  const isPage = location === "/about" || location === "/work" || location === "/services" || location === "/team";
+
 
   return (
     <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
@@ -50,8 +50,8 @@ export function Navbar() {
         transition={{ duration: 0.5 }}
         className={cn(
           "w-full max-w-[1400px] rounded-full transition-all duration-300 flex items-center justify-between px-6 py-3",
-          scrolled || isPage
-            ? "bg-background/80 backdrop-blur-md border border-border/40 shadow-lg shadow-black/5" 
+          scrolled
+            ? "bg-background/80 backdrop-blur-md border border-border/40 shadow-lg shadow-black/5"
             : "bg-transparent border border-transparent"
         )}
       >
@@ -77,19 +77,19 @@ export function Navbar() {
                 </Link>
               ))}
             </div>
-            
+
             <div className="h-4 w-px bg-border mx-2" />
 
             <div className="flex items-center gap-2">
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                onClick={toggleTheme} 
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
                 className="rounded-full w-9 h-9 hover:bg-muted/50"
               >
                 {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
               </Button>
-              
+
               <Button asChild variant="default" className="rounded-full px-6 h-9 text-sm font-medium shadow-sm">
                 <Link href="/contact">Let's Talk</Link>
               </Button>
@@ -97,10 +97,10 @@ export function Navbar() {
           </div>
         ) : (
           <div className="flex items-center gap-2">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={toggleTheme} 
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
               className={cn("rounded-full w-10 h-10", scrolled ? "bg-background/50" : "bg-background/20 backdrop-blur-sm")}
             >
               {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
@@ -131,8 +131,8 @@ export function Navbar() {
                       </Link>
                     </motion.div>
                   ))}
-                  
-                  <motion.div 
+
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}

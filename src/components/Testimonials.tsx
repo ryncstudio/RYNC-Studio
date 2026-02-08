@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Quote } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Testimonial {
   name: string;
@@ -38,10 +39,19 @@ const testimonials: Testimonial[] = [
 
 export function Testimonials() {
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, {
+    once: false,
+    margin: "-70% 0px -70% 0px"  // Cards stay stacked until you scroll deep into section (both directions)
+  });
+
+  // Auto-spread on mobile when in view
+  const shouldSpread = isMobile ? isInView : isHovered;
 
   // Define exact transforms for each card matching the original
   const getCardTransform = (index: number) => {
-    if (isHovered) {
+    if (shouldSpread) {
       return "translateZ(0) translateY(0)";
     }
 
@@ -60,7 +70,9 @@ export function Testimonials() {
   };
 
   const getCardFilter = (index: number) => {
-    if (isHovered) return "blur(0)";
+    // Disable blur on mobile for better text rendering
+    if (isMobile) return "blur(0)";
+    if (shouldSpread) return "blur(0)";
 
     switch (index) {
       case 0:
@@ -77,7 +89,7 @@ export function Testimonials() {
   };
 
   const getCardOpacity = (index: number) => {
-    if (isHovered) return 1;
+    if (shouldSpread) return 1;
 
     switch (index) {
       case 0:
@@ -90,7 +102,7 @@ export function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden bg-background">
+    <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden bg-background" ref={sectionRef}>
       <div className="container px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
@@ -128,13 +140,13 @@ export function Testimonials() {
                 perspective: "500px",
                 perspectiveOrigin: "center center",
               }}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              onMouseEnter={() => !isMobile && setIsHovered(true)}
+              onMouseLeave={() => !isMobile && setIsHovered(false)}
             >
               <ul
                 className="relative flex flex-col transition-all duration-500 ease-out"
                 style={{
-                  gap: isHovered ? "20px" : "0",
+                  gap: shouldSpread ? "20px" : "0",
                   transformStyle: "preserve-3d",
                 }}
               >
@@ -142,16 +154,21 @@ export function Testimonials() {
                   return (
                     <li
                       key={index}
-                      className="bg-card border border-border/50 rounded-xl p-5 backdrop-blur-sm transition-all duration-500 ease-out relative cursor-pointer"
+                      className="bg-card border border-border/50 rounded-xl p-5 md:p-6 transition-all duration-500 ease-out relative cursor-pointer w-full max-w-[520px]"
                       style={{
-                        width: "520px",
                         minHeight: "140px",
                         transformStyle: "preserve-3d",
+                        WebkitTransformStyle: "preserve-3d",
+                        backfaceVisibility: "hidden",
+                        WebkitBackfaceVisibility: "hidden",
                         transform: getCardTransform(index),
+                        WebkitTransform: getCardTransform(index),
                         filter: getCardFilter(index),
+                        WebkitFilter: getCardFilter(index),
                         opacity: getCardOpacity(index),
                         transitionDelay: `${index * 50}ms`,
                         boxShadow: "0 0 12px rgba(0,0,0,0.12)",
+                        willChange: "transform, filter, opacity",
                         ["--i" as any]: index + 1,
                       }}
                     >
@@ -187,13 +204,13 @@ export function Testimonials() {
               </ul>
             </div>
 
-            {/* Hover Hint */}
+            {/* Hint Text */}
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: isHovered ? 0 : 1 }}
+              animate={{ opacity: shouldSpread ? 0 : 1 }}
               className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-center text-sm text-muted-foreground transition-opacity duration-300 whitespace-nowrap"
             >
-              Hover to view all
+              {isMobile ? "Scroll to view all" : "Hover to view all"}
             </motion.p>
           </motion.div>
         </div>

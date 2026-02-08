@@ -15,7 +15,7 @@ function ProjectCard({ project, i }: { project: typeof projects[0], i: number })
     target: ref,
     offset: ["start end", "end start"]
   });
-  
+
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
 
   return (
@@ -27,19 +27,19 @@ function ProjectCard({ project, i }: { project: typeof projects[0], i: number })
       <div className="relative w-full h-full overflow-hidden rounded-2xl md:rounded-[2rem] shadow-2xl bg-card">
         {/* Full Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src={project.image} 
-            alt={project.title} 
+          <img
+            src={project.image}
+            alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
 
         {/* Gradient Overlay for Text Visibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-90" />
-        
+
         {/* Content Overlay */}
         <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-end items-start z-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -48,15 +48,15 @@ function ProjectCard({ project, i }: { project: typeof projects[0], i: number })
             <span className="h-px w-6 md:w-8 bg-primary" />
             <span className="text-primary font-mono text-xs md:text-sm tracking-widest uppercase font-bold">{project.category}</span>
           </motion.div>
-          
+
           <h3 className="font-display font-bold text-3xl md:text-5xl mb-3 md:mb-4 text-white leading-tight">
             {project.title}
           </h3>
-          
+
           <p className="text-base md:text-lg text-white/80 mb-6 md:mb-8 max-w-xl leading-relaxed">
             {project.description}
           </p>
-          
+
           <div className="flex flex-wrap gap-3 items-center justify-between w-full">
             <div className="flex flex-wrap gap-2">
               {project.tags.map(tag => (
@@ -65,9 +65,9 @@ function ProjectCard({ project, i }: { project: typeof projects[0], i: number })
                 </Badge>
               ))}
             </div>
-            
+
             <Button size="lg" className="rounded-full h-10 md:h-12 px-5 md:px-6 bg-white text-black hover:bg-white/90 border-none transition-all group/btn text-sm md:text-base">
-              View Case Study 
+              View Case Study
               <ArrowUpRight className="ml-2 h-4 w-4 md:h-5 md:w-5 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
             </Button>
           </div>
@@ -90,8 +90,8 @@ export default function WorkPage() {
   return (
     <div className="min-h-screen bg-background" ref={containerRef}>
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
-        <motion.div 
+      <section className="relative h-[75vh] flex items-start justify-center overflow-hidden">
+        <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="absolute inset-0 z-0"
         >
@@ -99,16 +99,16 @@ export default function WorkPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background" />
         </motion.div>
 
-        <div className="container relative z-10 px-6 max-w-[1000px] text-center">
-          <motion.span 
+        <div className="container relative z-10 px-6 max-w-[1000px] text-center pt-40">
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-block mb-6 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium tracking-wide uppercase"
           >
             Selected Work
           </motion.span>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -117,7 +117,7 @@ export default function WorkPage() {
             Digital experiences that define categories.
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}

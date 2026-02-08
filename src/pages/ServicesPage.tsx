@@ -87,8 +87,8 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background" ref={containerRef}>
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        <motion.div 
+      <section className="relative h-[75vh] flex items-start justify-center overflow-hidden">
+        <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="absolute inset-0 z-0"
         >
@@ -96,25 +96,25 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background" />
         </motion.div>
 
-        <div className="container relative z-10 px-6 max-w-[1000px] text-center">
-          <motion.span 
+        <div className="container relative z-10 px-6 max-w-[1000px] text-center pt-40">
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-block mb-6 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium tracking-wide uppercase"
           >
             Our Services
           </motion.span>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-display font-bold text-4xl md:text-7xl lg:text-8xl tracking-tighter mb-8 pb-2 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50"
+            className="font-display font-bold text-5xl md:text-7xl lg:text-8xl tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50"
           >
             Comprehensive <span className="text-primary">solutions.</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -130,7 +130,7 @@ export default function ServicesPage() {
         <div className="container px-6 max-w-[1400px]">
           <div className="space-y-32">
             {services.map((service, i) => (
-              <motion.div 
+              <motion.div
                 key={service.id}
                 id={service.id}
                 initial={{ opacity: 0, y: 40 }}
@@ -151,7 +151,7 @@ export default function ServicesPage() {
                   <p className="text-xl text-muted-foreground leading-relaxed mb-8">
                     {service.longDescription}
                   </p>
-                  
+
                   <ul className="grid sm:grid-cols-2 gap-4">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
@@ -165,10 +165,10 @@ export default function ServicesPage() {
                 {/* Image Side */}
                 <div className={cn(i % 2 === 1 ? "lg:col-start-1" : "")}>
                   <div className="relative group rounded-3xl overflow-hidden border border-border/50 shadow-2xl aspect-[4/3] md:aspect-video lg:aspect-[4/3]">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-transparent" />
                   </div>

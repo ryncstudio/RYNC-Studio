@@ -18,8 +18,8 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-background" ref={containerRef}>
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <motion.div 
+      <section className="relative h-[75vh] flex items-start justify-center overflow-hidden">
+        <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="absolute inset-0 z-0"
         >
@@ -27,16 +27,16 @@ export default function TeamPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background" />
         </motion.div>
 
-        <div className="container relative z-10 px-6 max-w-[1000px] text-center">
-          <motion.span 
+        <div className="container relative z-10 px-6 max-w-[1000px] text-center pt-40">
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-block mb-6 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium tracking-wide uppercase"
           >
             Our Team
           </motion.span>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -45,7 +45,7 @@ export default function TeamPage() {
             Meet the <span className="text-primary">Minds.</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -70,9 +70,9 @@ export default function TeamPage() {
                 className="group relative"
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-[3/4] mb-6">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
+                  <img
+                    src={member.image}
+                    alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
@@ -86,7 +86,7 @@ export default function TeamPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold font-display mb-1">{member.name}</h3>
                 <p className="text-primary font-medium">{member.role}</p>
               </motion.div>
