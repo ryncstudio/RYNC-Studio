@@ -52,20 +52,39 @@ export function Contact({ showHeadings = true }: ContactProps) {
       return;
     }
 
-    // Simulation Mode (No external service)
+    // Web3Forms API Integration
     try {
-      // Simulate network request
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: `New ${formData.projectType} Inquiry from ${formData.name}`,
+          message: `Project Type: ${formData.projectType}\n\nMessage:\n${formData.message}`,
+          from_name: formData.name, // Client's full name will appear in Gmail
+        }),
+      });
 
-      console.log("Form submitted successfully (Simulation)");
-      toast.success("Message sent! (Note: This is a demo form. No email was actually sent.)");
+      const result = await response.json();
 
-      // Reset form
-      setFormData({ name: "", email: "", projectType: "Web Development", message: "" });
+      if (result.success) {
+        console.log("Form submitted successfully via Web3Forms");
+        toast.success("Message sent successfully! We'll get back to you soon. 🚀");
+
+        // Reset form
+        setFormData({ name: "", email: "", projectType: "Web Development", message: "" });
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
 
     } catch (error) {
       console.error("Submission Error:", error);
-      toast.error("Something went wrong. Please try again.");
+      toast.error("Failed to send message. Please try contacting us via WhatsApp or email directly.");
     } finally {
       setIsSubmitting(false);
     }
