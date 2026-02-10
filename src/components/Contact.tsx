@@ -54,6 +54,18 @@ export function Contact({ showHeadings = true }: ContactProps) {
 
     // Web3Forms API Integration
     try {
+      const apiKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+      // Debug: Check if API key is loaded (only logs first/last 4 chars for security)
+      if (!apiKey) {
+        console.error("❌ VITE_WEB3FORMS_ACCESS_KEY is not defined!");
+        toast.error("Contact form is not configured. Please contact us via WhatsApp or email directly.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      console.log("✅ API Key loaded:", apiKey.substring(0, 4) + "..." + apiKey.substring(apiKey.length - 4));
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -61,7 +73,7 @@ export function Contact({ showHeadings = true }: ContactProps) {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          access_key: apiKey,
           name: formData.name,
           email: formData.email,
           subject: `New ${formData.projectType} Inquiry from ${formData.name}`,
