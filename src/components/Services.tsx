@@ -159,8 +159,8 @@ export function Services() {
 
   return (
     <section id="services" className="py-16 md:py-32 relative bg-background">
-      {/* Background Texture */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay">
+      {/* Background Texture - Hidden on mobile to prevent scrolling glitches */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay hidden md:block">
         <img src={sectionPattern} alt="" className="w-full h-full object-cover" />
       </div>
 
