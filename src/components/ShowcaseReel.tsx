@@ -1,27 +1,25 @@
-﻿import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { GripHorizontal, Heart, MessageCircle, Send, Bookmark, MoreHorizontal } from "lucide-react";
 
-import reelPoster1 from "@/assets/reel-poster-1.png";
-import reelPoster2 from "@/assets/reel-poster-2.png";
-import reelPoster3 from "@/assets/reel-poster-3.png";
-import reelPoster4 from "@/assets/reel-poster-4.png";
-import reelPoster5 from "@/assets/reel-poster-5.png";
-import reelPoster6 from "@/assets/reel-poster-6.png";
+import social1 from "@/assets/social-1.png";
+import social2 from "@/assets/social-2.jpg";
+import social3 from "@/assets/social-3.jpg";
+import social4 from "@/assets/social-4.jpg";
+import social5 from "@/assets/social-5.jpg";
 
 interface ReelItem {
-  image: string;
+  image?: string;
+  video?: string;
   caption: string;
-  likes: string;
 }
 
 const reelItems: ReelItem[] = [
-  { image: reelPoster1, caption: "Building different. 🚀 #RYNCStudio #WebDesign #Creative", likes: "124" },
-  { image: reelPoster2, caption: "Elevating brands through clean, modern web experiences. 💻✨", likes: "89" },
-  { image: reelPoster3, caption: "Brand identity that speaks volumes. 🎨 #DesignAgency", likes: "215" },
-  { image: reelPoster4, caption: "Mobile apps that feel native and fast. 📱⚡️", likes: "156" },
-  { image: reelPoster5, caption: "Motion design adding life to interfaces! 🎬🔥", likes: "302" },
-  { image: reelPoster6, caption: "UI/UX isn't just how it looks, it's how it works. 🧠", likes: "198" },
+  { image: social1, caption: "Grow your personal or business brand with a professional website that builds your online presence. 🚀 #RYNCStudio #WebDesign #Growth" },
+  { image: social2, caption: "Shop Local. Earn Together. We built FILKART to connect communities through everyday products from local Philippine brands. 🛒🇵🇭 #Filkart #AppDev #LocalBusiness" },
+  { image: social3, caption: "Reimagine your next creation with RYNC Studio. We turn big ideas into reality. 💡✨ #CreativeAgency #DigitalProduct #Innovation" },
+  { image: social4, caption: "Founder's Birthday Month! 🎉 Celebrate with 12% OFF on all services until May 31. Let's build something great together. #RYNCStudio #Promo #WebDevelopment" },
+  { image: social5, caption: "RYNC Studio builds SUKI: A smart, voice-first inventory app for Filipino microbusiness owners. Tulong sa negosyo mo, araw-araw! 📱📦 #SukiApp #SariSariStore #TechForGood" },
 ];
 
 function SocialPostCard({ item, index }: { item: ReelItem; index: number }) {
@@ -81,14 +79,25 @@ function SocialPostCard({ item, index }: { item: ReelItem; index: number }) {
         <MoreHorizontal className="w-5 h-5 text-muted-foreground" />
       </div>
 
-      {/* Image Content */}
-      <div className="relative aspect-[4/5] bg-muted/20 overflow-hidden">
-        <img
-          src={item.image}
-          alt="RYNC Studio Post"
-          className="w-full h-full object-cover"
-          draggable={false}
-        />
+      {/* Image or Video Content */}
+      <div className="relative aspect-[4/5] bg-muted/20 overflow-hidden flex items-center justify-center">
+        {item.video ? (
+          <video
+            src={item.video}
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        ) : (
+          <img
+            src={item.image}
+            alt="RYNC Studio Post"
+            className="w-full h-full object-cover"
+            draggable={false}
+          />
+        )}
       </div>
 
       {/* Social Media Footer Actions */}
@@ -101,12 +110,11 @@ function SocialPostCard({ item, index }: { item: ReelItem; index: number }) {
         <Bookmark className="w-6 h-6 text-foreground hover:text-muted-foreground transition-colors cursor-pointer" />
       </div>
 
-      {/* Likes and Caption */}
-      <div className="px-4 pb-5">
-        <p className="font-semibold text-sm mb-1">{item.likes} likes</p>
+      {/* Caption (Likes removed) */}
+      <div className="px-4 pb-5 pt-2">
         <p className="text-sm">
           <span className="font-semibold mr-2">ryncstudio</span>
-          <span className="text-foreground/90">{item.caption}</span>
+          <span className="text-foreground/90 leading-relaxed">{item.caption}</span>
         </p>
       </div>
     </motion.div>
