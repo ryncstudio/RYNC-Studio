@@ -10,6 +10,7 @@ import ServicesPage from "@/pages/ServicesPage";
 import TeamPage from "@/pages/TeamPage";
 import ContactPage from "@/pages/ContactPage";
 import CaseStudyPage from "@/pages/CaseStudyPage";
+import PricingPage from "@/pages/PricingPage";
 
 import PrivacyPage from "@/pages/PrivacyPage";
 import TermsPage from "@/pages/TermsPage";
@@ -29,6 +30,7 @@ function AppRouter() {
         <Route path="/work" component={WorkPage} />
         <Route path="/services" component={ServicesPage} />
         <Route path="/team" component={TeamPage} />
+        <Route path="/pricing" component={PricingPage} />
         <Route path="/contact" component={ContactPage} />
 
         <Route path="/privacy" component={PrivacyPage} />
