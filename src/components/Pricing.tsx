@@ -8,52 +8,46 @@ import { Link } from "wouter";
 const plans = [
   {
     name: "Starter",
-    price: "₱25,000",
-    usdRef: "~$440 USD",
-    description: "Launch your professional presence fast. Perfect for startups and small businesses.",
+    price: "₱10,000",
+    usdRef: "Simple & Credible",
+    description: "Best for startups, freelancers, and small businesses needing a credible online presence.",
     features: [
-      "5-Page Website",
-      "Responsive Design",
+      "Up to 4 standard pages",
+      "Mobile & Desktop Responsive",
       "Basic SEO Setup",
       "Contact Form Integration",
-      "2 Weeks Delivery",
-      "30 Days Support"
+      "7–14 Business Days Delivery",
+      "30 Days Tech Support"
     ],
   },
   {
-    name: "Growth",
-    price: "₱60,000",
-    usdRef: "~$1,050 USD",
-    description: "Scale with systems that convert. Ideal for growing businesses ready to scale.",
+    name: "Business Growth",
+    price: "₱30,000",
+    usdRef: "Most Popular Choice",
+    description: "For growing businesses that need a complete website, CMS, and better engagement.",
     features: [
-      "Everything in Starter",
-      "Custom UI/UX Design",
-      "CMS Integration",
-      "Advanced Animations",
-      "E-commerce Ready",
-      "Analytics Integration",
-      "Social Media Graphics (5 designs)",
-      "3 Revision Rounds",
-      "Priority Support"
+      "Up to 8 standard pages + CMS",
+      "Custom Homepage Sections",
+      "Services/Product Showcase",
+      "Enhanced SEO Setup",
+      "3–5 Weeks Delivery",
+      "60 Days Tech Support"
     ],
     popular: true,
   },
   {
-    name: "Custom",
-    price: "Let's Talk",
-    usdRef: "Tailored to your needs",
-    description: "Something bigger in mind? We'll scope it together and build a package just for you.",
+    name: "Premium Business",
+    price: "₱60,000",
+    usdRef: "Advanced Functionality",
+    description: "For established brands needing a fully customized, conversion-focused website.",
     features: [
-      "Custom Web / Mobile Apps",
-      "Brand Identity & Design System",
-      "Motion Graphics & Video",
-      "Dedicated Team",
-      "Flexible Timeline",
-      "SLA & Priority Support",
-      "Monthly Reporting",
-      "Everything — your way"
+      "Up to 15 pages",
+      "Fully Customized UI/UX",
+      "1 Advanced Web Module",
+      "Local & On-Page SEO",
+      "5–8 Weeks Delivery",
+      "90 Days Priority Support"
     ],
-    custom: true,
   },
 ];
 
@@ -77,7 +71,7 @@ export function Pricing() {
             Invest in your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-violet-500">Growth</span>
           </h2>
           <p className="text-base md:text-xl text-muted-foreground">
-            Transparent pricing for Philippine businesses — and global clients welcome. No hidden fees, just results.
+            Transparent pricing packages designed to fit your unique business needs. No hidden fees.
           </p>
         </motion.div>
 
@@ -107,12 +101,9 @@ export function Pricing() {
                 <div className="mb-6 mt-2">
                   <h3 className="font-display font-bold text-xl md:text-2xl mb-3">{plan.name}</h3>
                   <div className="flex items-baseline gap-2 flex-wrap">
-                    <span className={`text-3xl md:text-4xl font-bold break-all ${'custom' in plan && plan.custom ? "text-transparent bg-clip-text bg-gradient-to-r from-primary to-violet-500" : "bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90"}`}>
+                    <span className={`text-3xl md:text-4xl font-bold break-all bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/90`}>
                       {plan.price}
                     </span>
-                    {'custom' in plan && plan.custom ? null : (
-                      <span className="text-muted-foreground text-sm shrink-0">/project</span>
-                    )}
                   </div>
                   <div className="text-xs text-muted-foreground mt-1 font-medium">
                     {plan.usdRef}
@@ -144,15 +135,13 @@ export function Pricing() {
                 <Button
                   asChild
                   className={`w-full rounded-full h-11 font-semibold ${plan.popular
-                      ? "bg-gradient-to-r from-primary to-violet-500 hover:shadow-lg hover:shadow-primary/30"
-                      : 'custom' in plan && plan.custom
-                        ? "bg-gradient-to-r from-primary to-violet-500 hover:shadow-lg hover:shadow-primary/30"
-                        : ""
+                      ? "bg-gradient-to-r from-primary to-violet-500 hover:shadow-lg hover:shadow-primary/30 text-white"
+                      : ""
                     }`}
-                  variant={'custom' in plan && plan.custom ? "default" : plan.popular ? "default" : "outline"}
+                  variant={plan.popular ? "default" : "outline"}
                 >
-                  <Link href="/contact">
-                    {'custom' in plan && plan.custom ? "Get a Custom Quote" : "Get Started"}
+                  <Link href="/pricing">
+                    View Package Details
                   </Link>
                 </Button>
               </Card>
@@ -160,16 +149,20 @@ export function Pricing() {
           ))}
         </div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center text-sm text-muted-foreground mt-10"
+          className="text-center mt-12"
         >
-          Prices shown in Philippine Peso (₱). USD estimates shown for reference.
-          All plans include a free consultation. <Link href="/contact" className="text-primary hover:underline">Contact us</Link> to discuss your project.
-        </motion.p>
+          <p className="text-sm text-muted-foreground mb-4">
+            Looking for something tailored exactly to your needs? We also offer custom solutions.
+          </p>
+          <Button asChild variant="ghost" className="text-primary hover:text-primary/80">
+            <Link href="/pricing">See Full Pricing & Add-ons</Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
