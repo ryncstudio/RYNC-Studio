@@ -158,7 +158,7 @@ export default function WorkPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
                 <p className="font-display font-bold text-3xl md:text-4xl text-foreground mb-1">
-                  7+
+                  6+
                 </p>
                 <p className="text-sm text-muted-foreground">
                   Projects Delivered

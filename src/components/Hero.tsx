@@ -87,7 +87,7 @@ export function Hero() {
         <div className="container px-6 max-w-[1400px]">
           <div className="grid grid-cols-2 md:flex md:flex-row justify-between items-center py-6 md:py-8 gap-y-6 gap-x-4 md:gap-0">
             {[
-              { value: "5+", label: "Projects Shipped" },
+              { value: "6+", label: "Projects Shipped" },
               { value: "5+", label: "Happy Clients" },
               { value: "98%", label: "Client Satisfaction" },
               { value: "2+", label: "Years Building" },
