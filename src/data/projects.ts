@@ -1,7 +1,6 @@
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
-import project4 from "@/assets/project-4.jpg";
-import partnerFilkart from "@/assets/partner-filkart.jpg";
+import partnerFilkart from "@/assets/partner-filkart.png";
 import partnerTrt from "@/assets/partner-trt.png";
 import sukiMockup from "@/assets/suki-mockup.jpg";
 import sugboTaMockup from "@/assets/sugbo-ta-mockup.jpg";
@@ -94,26 +93,6 @@ export const projects: Project[] = [
         "Customers regularly comment on how professional the site looks vs. competitors",
       ],
       stack: ["React", "Shopify", "Tailwind CSS", "Stripe"],
-    },
-  },
-  {
-    title: "Southshore Tours",
-    slug: "southshore-tours",
-    category: "Travel & Tourism",
-    description: "Travel and tour booking platform showcasing Cebu's best destinations with seamless user experience and stunning visual storytelling.",
-    image: project4,
-    tags: ["Client", "Ongoing"],
-    caseStudy: {
-      overview: "Southshore Tours is a Cebu-based travel company offering curated island tours and adventure packages. They were relying entirely on Facebook Messenger for bookings — a process that was slow, error-prone, and hard to scale.",
-      challenge: "The business needed a proper booking system that could handle multiple tour packages, date availability, and group sizes — while keeping the experience simple enough for tourists unfamiliar with the brand.",
-      solution: "We built a visually stunning booking platform with a custom tour catalog, real-time availability calendar, and automated confirmation emails. The design paired Cebu's natural beauty with clean, conversion-focused UI patterns.",
-      results: [
-        "Direct bookings via website reduced Facebook Messenger load by 70%",
-        "Average booking time cut from 20+ minutes (manual) to under 5 minutes",
-        "Tour packages now sell out faster due to urgency indicators on the site",
-        "Ongoing: Adding review integration and a loyalty rewards program",
-      ],
-      stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Vercel"],
     },
   },
   {
